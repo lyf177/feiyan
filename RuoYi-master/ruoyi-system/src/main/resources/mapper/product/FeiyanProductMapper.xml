@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.product.mapper.FeiyanProductMapper">
+    
+    <resultMap type="FeiyanProduct" id="FeiyanProductResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="code"    column="code"    />
+        <result property="filedId"    column="filed_id"    />
+        <result property="filedName"    column="filed_name"    />
+        <result property="filedId1"    column="filed_id1"    />
+        <result property="filedName1"    column="filed_name1"    />
+        <result property="filedId2"    column="filed_id2"    />
+        <result property="filedName2"    column="filed_name2"    />
+        <result property="filedId3"    column="filed_id3"    />
+        <result property="filedName3"    column="filed_name3"    />
+        <result property="filedId4"    column="filed_id4"    />
+        <result property="filedName4"    column="filed_name4"    />
+        <result property="role"    column="role"    />
+        <result property="productType"    column="product_type"    />
+        <result property="idDel"    column="id_del"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectFeiyanProductVo">
+        select id, name, code, filed_id, filed_name, filed_id1, filed_name1, filed_id2, filed_name2, filed_id3, filed_name3, filed_id4, filed_name4, role, product_type, id_del, create_by, create_time, update_by, update_time, remark from feiyan_product
+    </sql>
+
+    <select id="selectFeiyanProductList" parameterType="FeiyanProduct" resultMap="FeiyanProductResult">
+        <include refid="selectFeiyanProductVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="code != null  and code != ''"> and code = #{code}</if>
+            <if test="filedId != null  and filedId != ''"> and filed_id = #{filedId}</if>
+            <if test="filedName != null  and filedName != ''"> and filed_name like concat('%', #{filedName}, '%')</if>
+            <if test="filedId1 != null  and filedId1 != ''"> and filed_id1 = #{filedId1}</if>
+            <if test="filedName1 != null  and filedName1 != ''"> and filed_name1 = #{filedName1}</if>
+            <if test="filedId2 != null  and filedId2 != ''"> and filed_id2 = #{filedId2}</if>
+            <if test="filedName2 != null  and filedName2 != ''"> and filed_name2 = #{filedName2}</if>
+            <if test="filedId3 != null  and filedId3 != ''"> and filed_id3 = #{filedId3}</if>
+            <if test="filedName3 != null  and filedName3 != ''"> and filed_name3 = #{filedName3}</if>
+            <if test="filedId4 != null  and filedId4 != ''"> and filed_id4 = #{filedId4}</if>
+            <if test="filedName4 != null  and filedName4 != ''"> and filed_name4 = #{filedName4}</if>
+            <if test="role != null  and role != ''"> and role = #{role}</if>
+            <if test="productType != null  and productType != ''"> and product_type = #{productType}</if>
+            <if test="idDel != null  and idDel != ''"> and id_del = #{idDel}</if>
+        </where>
+    </select>
+    
+    <select id="selectFeiyanProductById" parameterType="Long" resultMap="FeiyanProductResult">
+        <include refid="selectFeiyanProductVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertFeiyanProduct" parameterType="FeiyanProduct" useGeneratedKeys="true" keyProperty="id">
+        insert into feiyan_product
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">name,</if>
+            <if test="code != null">code,</if>
+            <if test="filedId != null">filed_id,</if>
+            <if test="filedName != null">filed_name,</if>
+            <if test="filedId1 != null">filed_id1,</if>
+            <if test="filedName1 != null">filed_name1,</if>
+            <if test="filedId2 != null">filed_id2,</if>
+            <if test="filedName2 != null">filed_name2,</if>
+            <if test="filedId3 != null">filed_id3,</if>
+            <if test="filedName3 != null">filed_name3,</if>
+            <if test="filedId4 != null">filed_id4,</if>
+            <if test="filedName4 != null">filed_name4,</if>
+            <if test="role != null">role,</if>
+            <if test="productType != null">product_type,</if>
+            <if test="idDel != null">id_del,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">#{name},</if>
+            <if test="code != null">#{code},</if>
+            <if test="filedId != null">#{filedId},</if>
+            <if test="filedName != null">#{filedName},</if>
+            <if test="filedId1 != null">#{filedId1},</if>
+            <if test="filedName1 != null">#{filedName1},</if>
+            <if test="filedId2 != null">#{filedId2},</if>
+            <if test="filedName2 != null">#{filedName2},</if>
+            <if test="filedId3 != null">#{filedId3},</if>
+            <if test="filedName3 != null">#{filedName3},</if>
+            <if test="filedId4 != null">#{filedId4},</if>
+            <if test="filedName4 != null">#{filedName4},</if>
+            <if test="role != null">#{role},</if>
+            <if test="productType != null">#{productType},</if>
+            <if test="idDel != null">#{idDel},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateFeiyanProduct" parameterType="FeiyanProduct">
+        update feiyan_product
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="code != null">code = #{code},</if>
+            <if test="filedId != null">filed_id = #{filedId},</if>
+            <if test="filedName != null">filed_name = #{filedName},</if>
+            <if test="filedId1 != null">filed_id1 = #{filedId1},</if>
+            <if test="filedName1 != null">filed_name1 = #{filedName1},</if>
+            <if test="filedId2 != null">filed_id2 = #{filedId2},</if>
+            <if test="filedName2 != null">filed_name2 = #{filedName2},</if>
+            <if test="filedId3 != null">filed_id3 = #{filedId3},</if>
+            <if test="filedName3 != null">filed_name3 = #{filedName3},</if>
+            <if test="filedId4 != null">filed_id4 = #{filedId4},</if>
+            <if test="filedName4 != null">filed_name4 = #{filedName4},</if>
+            <if test="role != null">role = #{role},</if>
+            <if test="productType != null">product_type = #{productType},</if>
+            <if test="idDel != null">id_del = #{idDel},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteFeiyanProductById" parameterType="Long">
+        delete from feiyan_product where id = #{id}
+    </delete>
+
+    <delete id="deleteFeiyanProductByIds" parameterType="String">
+        delete from feiyan_product where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
