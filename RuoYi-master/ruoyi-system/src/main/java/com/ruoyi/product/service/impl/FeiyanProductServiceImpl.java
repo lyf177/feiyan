@@ -1,13 +1,14 @@
-package com.ruoyi.system.product.service.impl;
+package com.ruoyi.product.service.impl;
 
-import java.util.List;
+import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.product.domain.FeiyanProduct;
+import com.ruoyi.product.mapper.FeiyanProductMapper;
+import com.ruoyi.product.service.IFeiyanProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ruoyi.system.product.mapper.FeiyanProductMapper;
-import com.ruoyi.system.product.domain.FeiyanProduct;
-import com.ruoyi.system.product.service.IFeiyanProductService;
-import com.ruoyi.common.core.text.Convert;
+
+import java.util.List;
 
 /**
  * 产品展示Service业务层处理
@@ -16,7 +17,7 @@ import com.ruoyi.common.core.text.Convert;
  * @date 2021-09-15
  */
 @Service
-public class FeiyanProductServiceImpl implements IFeiyanProductService 
+public class FeiyanProductServiceImpl implements IFeiyanProductService
 {
     @Autowired
     private FeiyanProductMapper feiyanProductMapper;

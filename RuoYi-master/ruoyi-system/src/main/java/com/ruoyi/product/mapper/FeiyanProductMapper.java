@@ -1,7 +1,8 @@
-package com.ruoyi.system.product.mapper;
+package com.ruoyi.product.mapper;
+
+import com.ruoyi.product.domain.FeiyanProduct;
 
 import java.util.List;
-import com.ruoyi.system.product.domain.FeiyanProduct;
 
 /**
  * 产品展示Mapper接口

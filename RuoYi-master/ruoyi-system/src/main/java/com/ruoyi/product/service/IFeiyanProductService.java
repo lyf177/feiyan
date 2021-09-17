@@ -1,7 +1,10 @@
-package com.ruoyi.system.product.service;
+package com.ruoyi.product.service;
+
+
+
+import com.ruoyi.product.domain.FeiyanProduct;
 
 import java.util.List;
-import com.ruoyi.system.product.domain.FeiyanProduct;
 
 /**
  * 产品展示Service接口
